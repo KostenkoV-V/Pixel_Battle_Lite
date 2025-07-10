@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Battle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-gray-900 text-white antialiased">
+  <header class="flex items-center justify-between p-4 bg-gradient-to-r from-purple-800 to-indigo-800 shadow-lg">
+    <h1 class="text-3xl font-extrabold">⚔️ Pixel Battle ⚔️</h1>
+    <div class="flex items-center space-x-4">
+      <span class="font-medium">{{ user or 'Гость' }}</span>
+      {% if user %}
+        <button onclick="location.href='/logout'"
+          class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded-full text-sm">
+          Выйти
+        </button>
+      {% else %}
+        <a href="{{ url_for('github.login') }}"
+          class="px-3 py-1 bg-green-600 hover:bg-green-700 rounded-full text-sm">
+          Войти через GitHub
+        </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex flex-col items-center py-6">
+    <div id="viewport" 
+       class="w-full max-w-4xl h-[600px] bg-gray-800 rounded-lg overflow-hidden relative shadow-xl touch-none">
+    <canvas id="pixelCanvas"></canvas>
+    </div>
+
+    <div id="controls"
+      class="mt-6 flex items-center space-x-6 bg-gray-800 bg-opacity-50 p-4 rounded-xl shadow-inner">
+      <!-- Color -->
+      <label class="flex items-center space-x-2">
+        <feather-icon data-feather="droplet" class="w-6 h-6 text-red-400"></feather-icon>
+        <input type="color" id="colorPicker" value="#ff0000"
+          class="w-10 h-10 p-0 border-0 cursor-pointer"/>
+      </label>
+
+      <!-- Timer -->
+      <div class="flex flex-col items-center">
+        <span class="text-sm uppercase tracking-widest">Next Move In</span>
+        <div id="timer" class="mt-1 font-bold text-2xl">--:--</div>
+        <div class="w-32 h-2 mt-2 bg-gray-600 rounded-full overflow-hidden">
+          <div id="timer-bar" class="h-full bg-green-400 transition-all"></div>
+        </div>
+      </div>
+
+    
+    </div>
+  </main>
+
+  <footer class="text-center text-gray-500 text-xs py-4">
+    &copy; Pixel Battle • powered by Flask & Tailwind
+  </footer>
+
+  <!-- SCRIPTS -->
+
+<script>
+    feather.replace();
+    const WIDTH    = {{ width }};
+    const HEIGHT   = {{ height }};
+    const COOLDOWN = {{ cooldown }};
+  </script>
+  <script src="/static/script.js"></script>
+
+</body>
+</html>
