@@ -51,8 +51,8 @@ python app.py
 - [x] Перевод DOM-сетки в HTML5 Canvas  
 - [x] Zoom & Pan canvas  
 - [x] Отрисовка только видимой области  
-- [х] UI: Tailwind CSS + Feather Icons
-- [х] OAuth-вход через GitHub (Flask-Dance)
+- [x] UI: Tailwind CSS + Feather Icons
+- [x] OAuth-вход через GitHub (Flask-Dance)
 - [ ] Хранение состояния (БД/Redis)
 - [ ] Кабинет администратора
 - [ ] Аутентификация и модерация    
