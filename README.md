@@ -1,6 +1,5 @@
 # ⚔️ Pixel Battle
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.3.2-green.svg)](https://flask.palletsprojects.com/)
 [![Canvas](https://img.shields.io/badge/Canvas-HTML5-yellow.svg)](https://developer.mozilla.org/docs/Web/API/Canvas_API)
